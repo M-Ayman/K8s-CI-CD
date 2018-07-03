@@ -23,7 +23,7 @@ node('master'){
     }
     stage('Docker Build, Push'){
       withDockerRegistry([credentialsId: '55d22be4-cff4-4609-a97d-a74ad61ad12b', url: 'https://index.docker.io/v1/']) {
-        ImageName = "crd.registry.com:5000/wordpress"
+        ImageName = "username/wordpress"
         sh "docker build -t ${ImageName}:${imageTag} ."
         sh "docker push ${ImageName}:${imageTag}"
         sh "docker rmi ${ImageName}:${imageTag}"
