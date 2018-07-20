@@ -32,7 +32,7 @@ node('master'){
       }
 
     node('ansible'){
-      stage('Deploy CRD Website'){
+      stage('Deploy Wordpress Website'){
         sh "ansible-playbook /home/jenkins/roles/wordpress-deploy/deploy.yml --user=ansible  --extra-vars ImageName=${ImageName} --extra-vars imageTag=${imageTag} --extra-vars Namespace=${Namespace}"
 
       }
